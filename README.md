@@ -9,7 +9,7 @@ This was only tested on Nobara so far! It should work on any distro.
 ## Installation
 Clone the repo
 ```console
-git clone 
+git clone https://github.com/MemerGamer/fetch-ke.git
 ```
 
 Give executable permissions
