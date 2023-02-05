@@ -19,9 +19,14 @@ puptime=${puptime:3}
 totalmem=$(free -m | grep -oP '\d+' | head -n 1)
 currmem=$(free -m | grep -oP '\d+' | head -n 2 | tail -1)
 
+#distro name
+distro=$(hostnamectl | sed -n -e 's/^.*Operating System: //p')
+first_word_of_distro=$(echo $distro | head -n1 | sed -e 's/\s.*$//')
+
 
 # This function is from 
 # TrinityCoder/center_text_in_bash.md on Github
+
 function print_centered {
 
      [[ $# == 0 ]] && return 1
@@ -47,17 +52,32 @@ function print_centered {
      return 0
 }
 
-figlet -w $(tput cols) -c "fetch-ke"
+figlet -w $(tput cols) -c "$first_word_of_distro"
 print_centered "user: $(whoami)"
 print_centered "hname: $(hostname)"
-print_centered "distro: $(hostnamectl | sed -n -e 's/^.*Operating System: //p')"
+print_centered "distro: $distro"
 print_centered "kernel: $(uname -r)"
-
 print_centered "uptime: $puptime"
 print_centered "shell: $(echo $SHELL)"
 print_centered "processes: $(ps -e | wc -l)"
 print_centered "memory: $currmem | $totalmem"
 
 
-COLORS=$(echo -e "${WHITE}white${ENDCOLOR} ${RED}red${ENDCOLOR}  ${YELLOW}yellow${ENDCOLOR} ${GREEN}green${ENDCOLOR} ${BLUE}blue${ENDCOLOR} ${MAGENTA}magenta${ENDCOLOR} ${CYAN}cyan${ENDCOLOR}")
-print_centered "                                                 colors: $COLORS"
+print_centered "colors:"
+
+#color list:
+w=$(print_centered "·white")
+r=$(print_centered "·red")
+ye=$(print_centered "·yellow")
+gr=$(print_centered "·green")
+bl=$(print_centered "·blue")
+mag=$(print_centered "·magenta")
+cy=$(print_centered "·cyan")
+
+echo -e "${WHITE}$w${ENDCOLOR}"
+echo -e "${RED}$r${ENDCOLOR}"
+echo -e "${YELLOW}$ye${ENDCOLOR}"
+echo -e "${GREEN}$gr${ENDCOLOR}"
+echo -e "${BLUE}$bl${ENDCOLOR}"
+echo -e "${MAGENTA}$mag${ENDCOLOR}"
+echo -e "${CYAN}$cy${ENDCOLOR}"
