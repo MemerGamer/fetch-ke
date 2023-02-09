@@ -42,6 +42,14 @@ fetch-ke -b # disables long battery information
 fetch-ke -c # disables colors
 ```
 
+### Short battery display with `-b` flag
+
 ![short battery](assets/short_battery.png?raw=true "short battery")
+
+### No colors displayed with `-c` flag
+
 ![no_colors](assets/no_colors.png?raw=true "no colors")
+
+### No colors and short battery with combined `-bc` flag
+
 ![combined](assets/combined.png?raw=true "combined")
