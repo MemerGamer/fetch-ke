@@ -30,6 +30,7 @@ first_word_of_distro=$(echo $distro | head -n1 | sed -e 's/\s.*$//')
 battery_info1=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state" | xargs)
 battery_info2=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "to\ full" | xargs)
 battery_info3=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "percentage" | xargs)
+battery_info4=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "to\ empty" | xargs)
 
 
 # This function is from 
@@ -101,7 +102,7 @@ if [[ -z $optb ]]
 then
 	print_centered "battery:"
 	print_centered "·$battery_info1"
-	print_centered "·$battery_info2"
+	print_centered "·${battery_info2}${battery_info4}"
 	print_centered "·$battery_info3"
 else
 	print_centered "battery $battery_info3"
