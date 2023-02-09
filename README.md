@@ -30,7 +30,7 @@ Copy the tool to `/bin`
 sudo cp fetch-ke /bin/fetch-ke
 ```
 
-## Usage
+## Usage Examples
 
 ```console
 fetch-ke -h # displays help
@@ -41,3 +41,7 @@ fetch-ke -b # disables long battery information
 
 fetch-ke -c # disables colors
 ```
+
+![short battery](assets/short_battery.png?raw=true "short battery")
+![no_colors](assets/no_colors.png?raw=true "no colors")
+![combined](assets/combined.png?raw=true "combined")
