@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # version
-version="1.0"
+version="1.0.1"
 
 # colors
 WHITE="\e[97m"
@@ -22,9 +22,15 @@ puptime=${puptime:3}
 totalmem=$(free -m | grep -oP '\d+' | head -n 1)
 currmem=$(free -m | grep -oP '\d+' | head -n 2 | tail -1)
 
-#distro name
+# distro name
 distro=$(hostnamectl | sed -n -e 's/^.*Operating System: //p')
 first_word_of_distro=$(echo $distro | head -n1 | sed -e 's/\s.*$//')
+
+# battery info
+battery_info1=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "state" | xargs)
+battery_info2=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "to\ full" | xargs)
+battery_info3=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0| grep -E "percentage" | xargs)
+
 
 # This function is from 
 # TrinityCoder/center_text_in_bash.md on Github
@@ -56,9 +62,11 @@ function print_centered {
 
 
 optc=
+optb=
 
-while getopts "chv" opt; do
+while getopts "bchv" opt; do
 	case $opt in
+		b ) optb="checked" ;;
 		c )
 			optc="checked" ;;
 		h )
@@ -66,6 +74,7 @@ while getopts "chv" opt; do
 			print_centered "." "."
 			print_centered "options:"
 			print_centered "-h | returns help message"
+			print_centered "-b | disables long battery info"
 			print_centered "-c | disables color output from fetch-ke"
 			print_centered "-v | returns version of fetch-ke"
 			exit 0
@@ -75,7 +84,7 @@ while getopts "chv" opt; do
 			exit 0
 			;;
 		\? )
-			print_centered "You have to use [-h] [-c] or [-v] options"
+			print_centered "You have to use [-h], [-b], [-c] or [-v] options"
 			exit 1
 			;;
 	esac
@@ -87,10 +96,20 @@ print_centered "hname: $(hostname)"
 print_centered "distro: $distro"
 print_centered "kernel: $(uname -r)"
 print_centered "uptime: $puptime"
+
+if [[ -z $optb ]]
+then
+	print_centered "battery:"
+	print_centered "·$battery_info1"
+	print_centered "·$battery_info2"
+	print_centered "·$battery_info3"
+else
+	print_centered "battery $battery_info3"
+fi
+
 print_centered "shell: $(echo $SHELL)"
 print_centered "processes: $(ps -e | wc -l)"
 print_centered "memory: $currmem | $totalmem"
-
 
 if ! [[ -z $optc ]]
 then
