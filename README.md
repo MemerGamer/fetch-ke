@@ -22,3 +22,12 @@ Copy the tool to `/bin`
 ```console
 sudo cp fetch-ke /bin/fetch-ke
 ```
+
+## Usage
+```console
+fetch-ke -h # displays help
+
+fetch-ke -v # displays version number
+
+fetch-ke -c # disables colors while fetching
+```

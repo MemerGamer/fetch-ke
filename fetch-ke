@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# version
+version="1.0"
+
 # colors
 WHITE="\e[97m"
 RED="\e[31m"
@@ -22,7 +25,6 @@ currmem=$(free -m | grep -oP '\d+' | head -n 2 | tail -1)
 #distro name
 distro=$(hostnamectl | sed -n -e 's/^.*Operating System: //p')
 first_word_of_distro=$(echo $distro | head -n1 | sed -e 's/\s.*$//')
-
 
 # This function is from 
 # TrinityCoder/center_text_in_bash.md on Github
@@ -52,6 +54,33 @@ function print_centered {
      return 0
 }
 
+
+optc=
+
+while getopts "chv" opt; do
+	case $opt in
+		c )
+			optc="checked" ;;
+		h )
+			print_centered "fetch-ke is a minimalistic, lightweight command-line system information tool written in bash"
+			print_centered "." "."
+			print_centered "options:"
+			print_centered "-h | returns help message"
+			print_centered "-c | disables color output from fetch-ke"
+			print_centered "-v | returns version of fetch-ke"
+			exit 0
+			;;
+		v )
+			print_centered "fetch-ke - $version"
+			exit 0
+			;;
+		\? )
+			print_centered "You have to use [-h] [-c] or [-v] options"
+			exit 1
+			;;
+	esac
+done
+
 figlet -w $(tput cols) -c "$first_word_of_distro"
 print_centered "user: $(whoami)"
 print_centered "hname: $(hostname)"
@@ -62,6 +91,12 @@ print_centered "shell: $(echo $SHELL)"
 print_centered "processes: $(ps -e | wc -l)"
 print_centered "memory: $currmem | $totalmem"
 
+
+if ! [[ -z $optc ]]
+then
+	echo 
+	exit 0
+fi
 
 print_centered "colors:"
 
