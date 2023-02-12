@@ -87,7 +87,7 @@ currmem=$(free -m | grep -oP '\d+' | head -n 2 | tail -1)
 
 isTermux=$(echo $PREFIX | grep -o "com.termux")
 
-if ! [[ -z isTermux ]]; then
+if [[ -z $isTermux ]]; then
 	# distro name
 	distro=$(hostnamectl | sed -n -e 's/^.*Operating System: //p')
 	first_word_of_distro=$(echo $distro | head -n1 | sed -e 's/\s.*$//')
