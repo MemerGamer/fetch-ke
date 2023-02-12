@@ -20,6 +20,12 @@ pkg install ncurses-utils
 ```
 
 You will also need: `upower` and `hostnamectl`. This is currently an issue, but I'm working on it!
+#### Note:
+If you still want to use it, you can with the following way:
+```console
+fetch-ke -BF 2>/dev/null
+```
+:exclamation: But I do not recommend it!
 
 ## Installation
 
