@@ -12,6 +12,15 @@ This was only tested on Nobara so far! It should work on any distro.
 ## Dependencies
 - [figlet](https://github.com/cmatsuoka/figlet)
 
+### For termux
+You need to install the following utils alongside the dependecies:
+
+```console
+pkg install ncurses-utils
+```
+
+You will also need: `upower` and `hostnamectl`. This is currently an issue, but I'm working on it!
+
 ## Installation
 
 Clone the repo
@@ -43,6 +52,10 @@ fetch-ke -v # displays version number
 fetch-ke -b # disables long battery information
 
 fetch-ke -c # disables colors
+
+fetch-ke -B # disables battery information
+
+fetch-ke -F #disables figlet at start
 ```
 
 ### Short battery display with `-b` flag
