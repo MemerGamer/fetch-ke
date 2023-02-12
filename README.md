@@ -5,21 +5,28 @@ fetch-ke is a minimalistic, lightweight command-line system information tool wri
 
 The name comes from the Hungarian word <i>fecske</i> which means the bird `swallow`.
 
-## Note
+## Tests
 
-This was only tested on Nobara so far! It should work on any distro.
+| Distro | Result|
+|---|---|
+| Nobara 37 (Fedora 37) | 	:heavy_check_mark: |
+| Ubuntu 22.04 LTS | 	:heavy_check_mark: |
+| Arch | :question: |
+| Debian | 	:question: |
+| Termux | 	:heavy_check_mark: |
+
 
 ## Dependencies
+- [git](https://git-scm.com/downloads)
 - [figlet](https://github.com/cmatsuoka/figlet)
 
 
-
-( [ncurses](https://github.com/mirror/ncurses) This should be part of your distribution, unless you use termux, see below)
+( [ncurses](https://github.com/mirror/ncurses) - This should be part of your distribution, unless you use termux, see below )
 ### For termux
 You need to install the following utils alongside the dependecies:
 
 ```console
-pkg install ncurses-utils
+pkg install git ncurses-utils
 ```
 #### Note:
 On termux the battery time displaying is not available currently, however the fetch should work.
