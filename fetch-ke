@@ -99,8 +99,7 @@ if [[ -z $isTermux ]]; then
 	battery_info4=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "to\ empty" | xargs)
 
 else
-
-	$optB="checked" # currently battery information is not available on termux
+	optB="checked" # currently battery information is not available on termux
 	androidVer=$(getprop ro.build.version.release)
 	distro="Android $androidVer"
 	first_word_of_distro="termux"
