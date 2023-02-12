@@ -9,6 +9,9 @@ The name comes from the Hungarian word <i>fecske</i> which means the bird `swall
 
 This was only tested on Nobara so far! It should work on any distro.
 
+## Dependencies
+- [figlet](https://github.com/cmatsuoka/figlet)
+
 ## Installation
 
 Clone the repo
