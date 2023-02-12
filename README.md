@@ -25,6 +25,12 @@ If you still want to use it, you can with the following way:
 ```console
 fetch-ke -BF 2>/dev/null
 ```
+
+Eventually you can combine it with figlet as following:
+```console
+figlet "fetch-ke" && ./fetch-ke -BF 2>/dev/null
+```
+
 :exclamation: But I do not recommend it!
 
 ## Installation
@@ -61,7 +67,7 @@ fetch-ke -c # disables colors
 
 fetch-ke -B # disables battery information
 
-fetch-ke -F #disables figlet at start
+fetch-ke -F # disables figlet at start
 ```
 
 ### Short battery display with `-b` flag
