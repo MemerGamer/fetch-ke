@@ -18,21 +18,8 @@ You need to install the following utils alongside the dependecies:
 ```console
 pkg install ncurses-utils
 ```
-
-You will also need: `upower` and `hostnamectl`. This is currently an issue, but I'm working on it!
 #### Note:
-If you still want to use it, you can with the following way:
-```console
-fetch-ke -BF 2>/dev/null
-```
-
-Eventually you can combine it with figlet as following:
-```console
-figlet "fetch-ke" && ./fetch-ke -BF 2>/dev/null
-```
-
-:exclamation: But I do not recommend it!
-
+On termux the battery time displaying is not available currently, however the fetch should work.
 ## Installation
 
 Clone the repo

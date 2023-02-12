@@ -1,11 +1,10 @@
 #!/bin/bash
 
 # version
-version="1.0.2"
+version="1.0.3"
 
 # This function is from
 # TrinityCoder/center_text_in_bash.md on Github
-
 function print_centered {
 
 	[[ $# == 0 ]] && return 1
@@ -86,15 +85,26 @@ puptime=${puptime:3}
 totalmem=$(free -m | grep -oP '\d+' | head -n 1)
 currmem=$(free -m | grep -oP '\d+' | head -n 2 | tail -1)
 
-# distro name
-distro=$(hostnamectl | sed -n -e 's/^.*Operating System: //p')
-first_word_of_distro=$(echo $distro | head -n1 | sed -e 's/\s.*$//')
+isTermux=$(echo $PREFIX | grep -o "com.termux")
 
-# battery info
-battery_info1=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "state" | xargs)
-battery_info2=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "to\ full" | xargs)
-battery_info3=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "percentage" | xargs)
-battery_info4=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "to\ empty" | xargs)
+if ! [[ -z isTermux ]]; then
+	# distro name
+	distro=$(hostnamectl | sed -n -e 's/^.*Operating System: //p')
+	first_word_of_distro=$(echo $distro | head -n1 | sed -e 's/\s.*$//')
+
+	# battery info
+	battery_info1=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "state" | xargs)
+	battery_info2=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "to\ full" | xargs)
+	battery_info3=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "percentage" | xargs)
+	battery_info4=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "to\ empty" | xargs)
+
+else
+
+	$optB="checked" # currently battery information is not available on termux
+	androidVer=$(getprop ro.build.version.release)
+	distro="Android $androidVer"
+	first_word_of_distro="termux"
+fi
 
 if [[ -z $optF ]]; then
 	figlet -w $(tput cols) -c "$first_word_of_distro"
