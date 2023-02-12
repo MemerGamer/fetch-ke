@@ -12,6 +12,9 @@ This was only tested on Nobara so far! It should work on any distro.
 ## Dependencies
 - [figlet](https://github.com/cmatsuoka/figlet)
 
+
+
+( [ncurses](https://github.com/mirror/ncurses) This should be part of your distribution, unless you use termux, see below)
 ### For termux
 You need to install the following utils alongside the dependecies:
 
