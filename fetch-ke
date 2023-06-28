@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # version
-version="1.0.3"
+version="1.0.4"
 
 # This function is from
 # TrinityCoder/center_text_in_bash.md on Github
@@ -94,9 +94,9 @@ if [[ -z $isTermux ]]; then
 
 	# battery info
 	battery_info1=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "state" | xargs)
-	battery_info2=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "to\ full" | xargs)
+	battery_info2=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "to full" | xargs)
 	battery_info3=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "percentage" | xargs)
-	battery_info4=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "to\ empty" | xargs)
+	battery_info4=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "to empty" | xargs)
 
 else
 	optB="checked" # currently battery information is not available on termux
