@@ -9,10 +9,10 @@ The name comes from the Hungarian word <i>fecske</i> which means the bird `swall
 
 | Distro                | Result             |
 | --------------------- | ------------------ |
-| Nobara 37 (Fedora 37) | :heavy_check_mark: |
-| Ubuntu 22.04 LTS      | :heavy_check_mark: |
-| Arch                  | :heavy_check_mark: |
+| Nobara / Fedora       | :heavy_check_mark: |
 | Debian                | :heavy_check_mark: |
+| Ubuntu                | :heavy_check_mark: |
+| Arch                  | :heavy_check_mark: |
 | Termux                | :heavy_check_mark: |
 
 ## Dependencies
@@ -30,7 +30,7 @@ You need to install the following utils alongside the dependecies:
 pkg install git ncurses-utils
 ```
 
-#### Note:
+#### Note
 
 On termux the battery time displaying is not available currently, however the fetch should work.
 
