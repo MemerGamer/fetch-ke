@@ -7,13 +7,14 @@ The name comes from the Hungarian word <i>fecske</i> which means the bird `swall
 
 ## Tests
 
-| Distro                | Result             |
-| --------------------- | ------------------ |
-| Nobara / Fedora       | :heavy_check_mark: |
-| Debian                | :heavy_check_mark: |
-| Ubuntu                | :heavy_check_mark: |
-| Arch                  | :heavy_check_mark: |
-| Termux                | :heavy_check_mark: |
+| Distro                  | Result             |
+| ----------------------- | ------------------ |
+| Nobara / Fedora         | :heavy_check_mark: |
+| Debian                  | :heavy_check_mark: |
+| Ubuntu                  | :heavy_check_mark: |
+| Arch                    | :heavy_check_mark: |
+| Termux                  | :heavy_check_mark: |
+| Windows 10 / Windows 11 | :heavy_check_mark: |
 
 ## Dependencies
 
@@ -42,6 +43,8 @@ Clone the repo
 git clone https://github.com/MemerGamer/fetch-ke.git
 ```
 
+### Linux / Termux
+
 Give executable permissions
 
 ```console
@@ -53,6 +56,23 @@ Copy the tool to `/bin`
 
 ```console
 sudo cp fetch-ke /bin/fetch-ke
+```
+
+If you want to set this to run when you open a shell session you need to write the following line to your `.bashrc` or `.zshrc` file:
+
+```console
+fetch-ke
+```
+
+### Windows
+
+Copy the tool to `C:\Windows` to make it available globally
+
+If you want to set this to run when you open a shell session you need to follow [this guide](https://superuser.com/a/1009553).
+After creating the profile file you need to add the following line to it:
+
+```console
+fetch-ke.ps1
 ```
 
 ## Usage Examples
@@ -82,3 +102,7 @@ fetch-ke -F # disables figlet at start
 ### No colors and short battery with combined `-bc` flag
 
 ![combined](assets/combined.png?raw=true "combined")
+
+### Windows 10 / Windows 11
+
+![windows](assets/windows.png?raw=true "windows")
