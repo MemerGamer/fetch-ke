@@ -15,6 +15,7 @@ The name comes from the Hungarian word <i>fecske</i> which means the bird `swall
 | Arch                    | :heavy_check_mark: |
 | Termux                  | :heavy_check_mark: |
 | Windows 10 / Windows 11 | :heavy_check_mark: |
+| WSL2                    | :heavy_check_mark: |
 
 ## Dependencies
 
