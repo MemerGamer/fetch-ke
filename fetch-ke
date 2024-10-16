@@ -27,21 +27,21 @@ function print_centered {
 
 # Function to check for updates
 function check_for_updates {
-	print_centered "Checking for updates..."
+	print_centered "checking for updates..."
 	latest_version=$(curl -s https://raw.githubusercontent.com/MemerGamer/fetch-ke/main/fetch-ke | grep 'version=' | head -n 1 | cut -d '"' -f 2)
 	if [[ "$latest_version" != "$version" ]]; then
-		print_centered "New version available! Updating..."
-		print_centered "Local version: $version"
+		print_centered "new version available! updating..."
+		print_centered "local version: $version"
 		print_centered "|"
 		print_centered "V"
-		print_centered "Latest version: $latest_version"
+		print_centered "latest version: $latest_version"
 		curl -L https://raw.githubusercontent.com/MemerGamer/fetch-ke/main/fetch-ke -o /tmp/fetch-ke 2>/dev/null
 		chmod +x /tmp/fetch-ke
-		print_centered "Please enter your sudo password to update: "
+		print_centered "please enter your sudo password to update: "
 		sudo mv /tmp/fetch-ke /bin/fetch-ke
-		print_centered "Updated to version $latest_version."
+		print_centered "updated to version $latest_version."
 	else
-		print_centered "fetch-ke is up to date."
+		print_centered "fetch-ke is up to date:)"
 	fi
 	exit 0
 }
