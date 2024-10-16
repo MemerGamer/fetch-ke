@@ -21,8 +21,17 @@ if [[ -n $isTermux ]]; then
         # If not, install it
         apt install ncurses-utils
     fi
-    mv fetch-ke /bin/fetch-ke
 else
+
+    # Check if figlet is installed
+    if ! command -v figlet &>/dev/null; then
+        echo "figlet is not installed. please install it for fetch-ke to work properly!"
+    fi
+
+    # Check if ncurses is installed
+    if ! command -v ncurses &>/dev/null; then
+        echo "ncurses is not installed. please install it for fetch-ke to work properly!"
+    fi
 
     # If it's not Termux
     # Move it to /bin (requires sudo)
