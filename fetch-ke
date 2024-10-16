@@ -27,7 +27,10 @@ function print_centered {
 
 # Function to check for updates
 function check_for_updates {
+	echo "Checking for updates..."
 	latest_version=$(curl -s https://raw.githubusercontent.com/MemerGamer/fetch-ke/main/fetch-ke | grep 'version=' | head -n 1 | cut -d '"' -f 2)
+	echo "Latest version: $latest_version"
+	echo "Current version: $version"
 	if [[ "$latest_version" != "$version" ]]; then
 		echo "New version available: $latest_version. Updating..."
 		curl -L https://raw.githubusercontent.com/MemerGamer/fetch-ke/main/fetch-ke -o /tmp/fetch-ke
