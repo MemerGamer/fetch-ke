@@ -19,7 +19,7 @@ if [[ -n $isTermux ]]; then
     # Check if ncurses is installed
     if ! command -v ncurses &>/dev/null; then
         # If not, install it
-        apt install ncurses
+        apt install ncurses-utils
     fi
     mv fetch-ke /bin/fetch-ke
 else

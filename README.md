@@ -9,31 +9,22 @@ The name comes from the Hungarian word <i>fecske</i> which means the bird `swall
 
 | Distro                  | Latest supported version |
 | ----------------------- | ------------------------ |
-| Nobara / Fedora         | v.1.1.2                  |
-| Debian                  | v.1.1.2                  |
-| Ubuntu                  | v.1.1.2                  |
-| Arch                    | v.1.1.2                  |
-| Termux                  | v.1.1.2                  |
+| Nobara / Fedora         | v.1.1.3                  |
+| Debian                  | v.1.1.3                  |
+| Ubuntu                  | v.1.1.3                  |
+| Arch                    | v.1.1.3                  |
+| Termux                  | v.1.1.3                  |
 | Windows 10 / Windows 11 | v.1.0.4                  |
 | WSL2                    | v.1.0.4                  |
 | macOS                   | :question:               |
 
 ## Dependencies
 
-- [git](https://git-scm.com/downloads)
+- [curl](https://github.com/curl/curl)
 - [figlet](https://github.com/cmatsuoka/figlet)
+- [ncurses](https://github.com/mirror/ncurses)
 
-( [ncurses](https://github.com/mirror/ncurses) - This should be part of your distribution, unless you use termux, see below )
-
-### For termux
-
-You need to install the following utils alongside the dependecies:
-
-```console
-pkg install git ncurses-utils
-```
-
-#### Note
+### Note for termux
 
 On termux the battery time displaying is not available currently, however the fetch should work.
 
