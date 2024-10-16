@@ -38,25 +38,10 @@ On termux the battery time displaying is not available currently, however the fe
 
 ## Installation
 
-Clone the repo
+You can install `fetch-ke` easily using `curl`:
 
 ```console
-git clone https://github.com/MemerGamer/fetch-ke.git
-```
-
-### Linux / Termux
-
-Give executable permissions
-
-```console
-cd fetch-ke
-sudo chmod +x fetch-ke
-```
-
-Copy the tool to `/bin`
-
-```console
-sudo cp fetch-ke /bin/fetch-ke
+curl -sL https://raw.githubusercontent.com/MemerGamer/fetch-ke/main/install-fetch-ke.sh | bash
 ```
 
 If you want to set this to run when you open a shell session you need to write the following line to your `.bashrc` or `.zshrc` file:
@@ -65,7 +50,7 @@ If you want to set this to run when you open a shell session you need to write t
 fetch-ke
 ```
 
-### Windows
+### Windows (maintainers needed)
 
 Copy the tool to `C:\Windows` to make it available globally
 
@@ -90,6 +75,8 @@ fetch-ke -c # disables colors
 fetch-ke -B # disables battery information
 
 fetch-ke -F # disables figlet at start
+
+fetch-ke -U # checks for updates
 ```
 
 ### Short battery display with `-b` flag
