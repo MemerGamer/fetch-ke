@@ -41,7 +41,7 @@ On termux the battery time displaying is not available currently, however the fe
 You can install `fetch-ke` easily using `curl`:
 
 ```console
-curl -sL https://raw.githubusercontent.com/MemerGamer/fetch-ke/main/install-fetch-ke.sh | bash
+curl -sL https://raw.githubusercontent.com/MemerGamer/fetch-ke/main/install.sh | bash
 ```
 
 If you want to set this to run when you open a shell session you need to write the following line to your `.bashrc` or `.zshrc` file:
