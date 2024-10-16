@@ -7,15 +7,16 @@ The name comes from the Hungarian word <i>fecske</i> which means the bird `swall
 
 ## Tests
 
-| Distro                  | Result             |
-| ----------------------- | ------------------ |
-| Nobara / Fedora         | :heavy_check_mark: |
-| Debian                  | :heavy_check_mark: |
-| Ubuntu                  | :heavy_check_mark: |
-| Arch                    | :heavy_check_mark: |
-| Termux                  | :heavy_check_mark: |
-| Windows 10 / Windows 11 | :heavy_check_mark: |
-| WSL2                    | :heavy_check_mark: |
+| Distro                  | Latest supported version |
+| ----------------------- | ------------------------ |
+| Nobara / Fedora         | v.1.0.8                  |
+| Debian                  | v.1.0.8                  |
+| Ubuntu                  | v.1.0.8                  |
+| Arch                    | v.1.0.8                  |
+| Termux                  | v.1.0.8                  |
+| Windows 10 / Windows 11 | v.1.0.4                  |
+| WSL2                    | v.1.0.4                  |
+| macOS                   | :question:               |
 
 ## Dependencies
 
@@ -79,9 +80,9 @@ fetch-ke -F # disables figlet at start
 fetch-ke -U # checks for updates
 ```
 
-### Short battery display with `-b` flag
+### No battery display with `-B` flag
 
-![short battery](assets/short_battery.png?raw=true "short battery")
+![short battery](assets/no_battery.png?raw=true "short battery")
 
 ### No colors displayed with `-c` flag
 
