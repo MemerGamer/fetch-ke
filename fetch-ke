@@ -63,7 +63,7 @@ while getopts "bchvBF" opt; do
 		print_centered "You have to use [-h], [-b], [-c], [-B], [-F] or [-v] options"
 		exit 1
 		;;
-	esac
+esac
 done
 
 # colors
@@ -92,12 +92,21 @@ if [[ -z $isTermux ]]; then
 	distro=$(hostnamectl | sed -n -e 's/^.*Operating System: //p')
 	first_word_of_distro=$(echo $distro | head -n1 | sed -e 's/\s.*$//')
 
+	battery_iterator=1
 	# battery info
-	# TODO: update the code to work with multiple batteries
-	battery_info1=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "state" | xargs)
-	battery_info2=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "to full" | xargs)
-	battery_info3=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "percentage" | xargs)
-	battery_info4=$(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "to empty" | xargs)
+	if [[ -z $optB ]]; then
+		battery_info=""
+		for battery in $(upower -e | grep battery); do
+			state=$(upower -i $battery | grep -E "state" | xargs)
+			percentage=$(upower -i $battery | grep -E "percentage" | xargs)
+			to_full_or_empty=$(upower -i $battery | grep -E "to (full|empty)" | xargs)
+			battery_info+="$battery_iterator. battery: \n"
+			[[ -n $state ]] && battery_info+="\t$state, \n"
+			[[ -n $percentage ]] && battery_info+="\t$percentage, \n"
+			[[ -n $to_full_or_empty ]] && battery_info+="\t$to_full_or_empty\n"
+			battery_iterator=$((battery_iterator + 1))
+		done
+	fi
 
 else
 	optB="checked" # currently battery information is not available on termux
@@ -117,13 +126,17 @@ print_centered "kernel: $(uname -r)"
 print_centered "uptime: $puptime"
 
 if [[ -z $optB ]]; then
-	if [[ -z $optb ]]; then
-		print_centered "battery:"
-		print_centered "·$battery_info1"
-		print_centered "·${battery_info2}${battery_info4}"
-		print_centered "·$battery_info3"
-	else
-		print_centered "battery $battery_info3"
+	if [[ -n $battery_info ]]; then
+		if [[ -z $optb ]]; then
+			print_centered "battery:"
+			echo -e "$battery_info" | while read -r line; do
+				[[ -n $line ]] && print_centered "·$line"
+			done
+		else
+			echo -e "$battery_info" | while read -r line; do
+				[[ -n $line ]] && print_centered "battery $line"
+			done
+		fi
 	fi
 fi
 
@@ -138,7 +151,7 @@ fi
 
 print_centered "colors:"
 
-#color list:
+# color list:
 w=$(print_centered "·white")
 r=$(print_centered "·red")
 ye=$(print_centered "·yellow")
