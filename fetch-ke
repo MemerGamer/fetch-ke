@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # version
-version="1.1.8"
+version="1.1.9"
 
 # This function is from
 # TrinityCoder/center_text_in_bash.md on Github
@@ -141,7 +141,7 @@ else
 		percentage=$(echo $battery_info | jq '.percentage')
 		status=$(echo $battery_info | jq -r '.status')
 		temperature=$(echo $battery_info | jq '.temperature')
-		battery_info="Status: $status, Percentage: $percentage%, Temperature: ${temperature}°C"
+		battery_info="Status: $status\n\tPercentage: $percentage% \n\tTemperature: ${temperature}°C"
 	fi
 fi
 
