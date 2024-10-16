@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # version
-version="1.0.8"
+version="1.0.9"
 
 # This function is from
 # TrinityCoder/center_text_in_bash.md on Github
@@ -29,10 +29,12 @@ function print_centered {
 function check_for_updates {
 	print_centered "Checking for updates..."
 	latest_version=$(curl -s https://raw.githubusercontent.com/MemerGamer/fetch-ke/main/fetch-ke | grep 'version=' | head -n 1 | cut -d '"' -f 2)
-	print_centered "Local version: $version"
-	print_centered "Latest version: $latest_version"
 	if [[ "$latest_version" != "$version" ]]; then
-		print_centered "New version available: $latest_version. Updating..."
+		print_centered "New version available! Updating..."
+		print_centered "Local version: $version"
+		print_centered "|"
+		print_centered "V"
+		print_centered "Latest version: $latest_version"
 		curl -L https://raw.githubusercontent.com/MemerGamer/fetch-ke/main/fetch-ke -o /tmp/fetch-ke
 		chmod +x /tmp/fetch-ke
 		sudo mv /tmp/fetch-ke /bin/fetch-ke
