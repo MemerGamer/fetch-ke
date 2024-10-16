@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # version
-version="1.0.4"
+version="1.0.5"
 
 # This function is from
 # TrinityCoder/center_text_in_bash.md on Github
@@ -63,7 +63,7 @@ while getopts "bchvBF" opt; do
 		print_centered "You have to use [-h], [-b], [-c], [-B], [-F] or [-v] options"
 		exit 1
 		;;
-esac
+	esac
 done
 
 # colors
@@ -81,9 +81,9 @@ ENDCOLOR="\e[0m"
 puptime="$(uptime -p)"
 puptime=${puptime:3}
 
-# memory
-totalmem=$(free -m | grep -oP '\d+' | head -n 1)
-currmem=$(free -m | grep -oP '\d+' | head -n 2 | tail -1)
+# memory in GB
+totalmem=$(free -m | awk '/Mem:/ {printf "%.2f", $2/1024}')
+currmem=$(free -m | awk '/Mem:/ {printf "%.2f", $3/1024}')
 
 isTermux=$(echo $PREFIX | grep -o "com.termux")
 
@@ -125,6 +125,8 @@ print_centered "distro: $distro"
 print_centered "kernel: $(uname -r)"
 print_centered "uptime: $puptime"
 
+echo
+
 if [[ -z $optB ]]; then
 	if [[ -n $battery_info ]]; then
 		if [[ -z $optb ]]; then
@@ -137,12 +139,15 @@ if [[ -z $optB ]]; then
 				[[ -n $line ]] && print_centered "battery $line"
 			done
 		fi
+		echo
 	fi
 fi
 
+
 print_centered "shell: $(echo $SHELL)"
 print_centered "processes: $(ps -e | wc -l)"
-print_centered "memory: $currmem | $totalmem"
+print_centered "memory: $currmem GiB | $totalmem GiB"
+echo
 
 if ! [[ -z $optc ]]; then
 	echo
