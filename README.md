@@ -9,11 +9,11 @@ The name comes from the Hungarian word <i>fecske</i> which means the bird `swall
 
 | Distro                  | Latest supported version |
 | ----------------------- | ------------------------ |
-| Nobara / Fedora         | v.1.1.7                  |
-| Debian                  | v.1.1.7                  |
-| Ubuntu                  | v.1.1.7                  |
-| Arch                    | v.1.1.7                  |
-| Termux                  | v.1.1.7                  |
+| Nobara / Fedora         | v.1.1.8                  |
+| Debian                  | v.1.1.8                  |
+| Ubuntu                  | v.1.1.8                  |
+| Arch                    | v.1.1.8                  |
+| Termux                  | v.1.1.8                  |
 | Windows 10 / Windows 11 | v.1.0.4                  |
 | WSL2                    | v.1.0.4                  |
 | macOS                   | :question:               |
@@ -23,10 +23,11 @@ The name comes from the Hungarian word <i>fecske</i> which means the bird `swall
 - [curl](https://github.com/curl/curl)
 - [figlet](https://github.com/cmatsuoka/figlet)
 - [ncurses](https://github.com/mirror/ncurses)
+- [jq](https://github.com/stedolan/jq) for termux only
 
 ### Note for termux
 
-On termux the battery time displaying is not available currently, however the fetch should work.
+On termux the install script will install figlet, ncurses-utils and jq.
 
 ## Installation
 

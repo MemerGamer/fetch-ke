@@ -21,6 +21,12 @@ if [[ -n $isTermux ]]; then
         # If not, install it
         apt install ncurses-utils
     fi
+
+    # Check if jq is installed
+    if ! command -v jq &>/dev/null; then
+        # If not, install it
+        apt install jq
+    fi
 else
 
     # Check if figlet is installed
