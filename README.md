@@ -1,9 +1,12 @@
 # fetch-ke
 
 ![fetch-ke](assets/main.png?raw=true "fetch-ke")
+
+<div align="center">
 fetch-ke is a minimalistic, lightweight command-line system information tool written in bash.
 
 The name comes from the Hungarian word <i>fecske</i> which means the bird `swallow`.
+</div>
 
 ## Tests
 
